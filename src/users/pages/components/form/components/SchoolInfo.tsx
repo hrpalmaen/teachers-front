@@ -1,7 +1,7 @@
 import { SelectComponent } from "@components/SelectComponent";
 import { Grid } from "@mui/material";
-import { IUser } from "../../interface";
-import { SwithComponent } from "@components/SelectComponent copy";
+import { IUser } from "../Interfaces";
+import { SwithComponent } from "@components/SwithComponent";
 
 interface SchoolInfoProps {
   defaultValues?: IUser;

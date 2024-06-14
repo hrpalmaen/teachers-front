@@ -1,3 +1,3 @@
-export * from "./fields/PersonalInfo";
-export * from "./fields/contactInformation";
-export * from "./fields/SchoolInfo";
+export * from "./PersonalInfo";
+export * from "./ContactInfo";
+export * from "./SchoolInfo";

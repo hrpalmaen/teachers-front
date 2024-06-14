@@ -1,6 +1,6 @@
 import { FieldComponent } from "@components/FieldComponent";
 import { Grid } from "@mui/material";
-import { IUser } from "../../interface";
+import { IUser } from "../Interfaces";
 
 interface ContactInfoProps {
   defaultValues?: IUser;

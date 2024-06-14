@@ -1,20 +1,14 @@
-import { ApolloError } from "@apollo/client";
 import { Box } from "@mui/material";
-import { useEffect } from "react";
 import * as yup from "yup";
 
-import { useUsers } from "../list/service";
-import { FieldsUser } from "./components/fields/PersonalInfo";
-import { IUser } from "./interface";
-import { useCreateUser, useUpdateUser } from "./service";
-
-import { useAuth } from "@auth/context";
 import { Actions } from "@components/actions/actions";
-import { Form, ModalComponent, useSnackbarUtils } from "@components/index";
-import { formatErrorsGraphql } from "@utils/errorsGraphql";
+import { Form, ModalComponent, useSnackbarUtils } from "@components";
 import { SectionFormComponent } from "@components/SectionFormComponent";
-import { ContactInfoUser } from "./components/fields/contactInformation";
-import { SchoolInfoUser } from "./components/fields/SchoolInfo";
+
+import { IUser } from "./Interfaces";
+import { FieldsUser } from "./components/PersonalInfo";
+import { ContactInfoUser } from "./components/ContactInfo";
+import { SchoolInfoUser } from "./components/SchoolInfo";
 
 interface UserModalProps {
   isOpen: boolean;
@@ -27,27 +21,8 @@ export const UserModal: React.FC<UserModalProps> = ({
   onClose,
   defaultValues,
 }: UserModalProps) => {
-  const { user } = useAuth();
-  const { createUser, loading, error } = useCreateUser();
-  const {
-    updateUser,
-    loading: loadingUpdate,
-    error: errorUpdate,
-  } = useUpdateUser();
-  const { refetch: refetchUsers } = useUsers(
-    { page: 0, pageSize: 15 },
-    user?.companyId || null
-  );
   const { showSnackbar } = useSnackbarUtils();
-
-  useEffect(() => {
-    if (error || errorUpdate) {
-      const errors = formatErrorsGraphql(
-        (defaultValues ? errorUpdate : error) as ApolloError
-      )[0];
-      showSnackbar(errors.message, "error");
-    }
-  }, [error, errorUpdate]);
+  const handleClose = () => onClose();
 
   const handleSubmit = async (data: IUser) => {
     if (defaultValues) {
@@ -56,24 +31,16 @@ export const UserModal: React.FC<UserModalProps> = ({
       await saveUser(data as IUser);
     }
     handleClose();
-    refetchUsers();
   };
 
   const saveUser = async (data: IUser) => {
-    data["isActive"] = true;
-    const response = await createUser(data);
-    console.log("response", response);
+    console.log("data upload", data);
     showSnackbar("Usuario creado con éxito", "success");
   };
 
   const editUser = async (id: string, data: IUser) => {
-    const response = await updateUser(id, data);
-    console.log("response", response);
+    console.log("data to update", id, data);
     showSnackbar("Usuario actualizado con éxito", "success");
-  };
-
-  const handleClose = () => {
-    onClose();
   };
 
   return (
@@ -110,14 +77,17 @@ export const UserModal: React.FC<UserModalProps> = ({
           // gradeId: yup.string().required("Este campo es requerido"),
         })}
       >
+        {/* personal information */}
         <SectionFormComponent title="Información personal">
           <FieldsUser defaultValues={defaultValues} />
         </SectionFormComponent>
         <br />
+        {/* school information */}
         <SectionFormComponent title="Información institucional">
           <SchoolInfoUser defaultValues={defaultValues} />
         </SectionFormComponent>
         <br />
+        {/* contact information */}
         <SectionFormComponent title="Información de contacto">
           <ContactInfoUser defaultValues={defaultValues} />
         </SectionFormComponent>
@@ -126,7 +96,7 @@ export const UserModal: React.FC<UserModalProps> = ({
           paddingTop={"1rem"}
         >
           <Box width={"30%"} sx={{ display: "flex", justifyContent: "end" }}>
-            <Actions label="Guardar" loading={loading || loadingUpdate} />
+            <Actions label="Guardar" loading={false} />
           </Box>
         </Box>
       </Form>
