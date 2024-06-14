@@ -1,8 +1,8 @@
-import { PageTitle } from "@components/PageTitle";
-import { Box } from "@mui/material";
 import { useState } from "react";
-import { ListCompanies } from "./components";
-import { CreateCompanyModal } from "./components/form/create";
+import { Box } from "@mui/material";
+// components
+import { PageTitle } from "@components/PageTitle";
+import { CreateCompanyModal, ListCompanies } from "./components";
 
 export const Schools = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,18 +17,21 @@ export const Schools = () => {
 
   return (
     <Box>
-      <Box>
-        <PageTitle
-          title={"Instituciones educativas"}
-          functions={[
-            { label: "Crear institución educativa", onClick: handleOpenModal },
-          ]}
-        />
-      </Box>
+      {/* header */}
+      <PageTitle
+        title={"Instituciones Educativas"}
+        functions={[
+          {
+            label: "Registrar institución educativa",
+            onClick: handleOpenModal,
+          },
+        ]}
+      />
+      <br />
+      {/* CreateCompany */}
       <CreateCompanyModal open={isModalOpen} onClose={handleCloseModal} />
-      <Box>
-        <ListCompanies />
-      </Box>
+      {/* ListCompanies */}
+      <ListCompanies />
     </Box>
   );
 };

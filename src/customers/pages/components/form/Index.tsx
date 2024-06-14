@@ -1,20 +1,16 @@
-import { Box } from "@mui/material";
-import { enqueueSnackbar } from "notistack";
-import { useEffect } from "react";
 import * as yup from "yup";
+import { Box } from "@mui/material";
 
-import { ICustomer } from "../../../../interface";
-import { FieldsCompany } from "../fields";
-import { useCreateCompany } from "./services";
+import { ICustomer } from "@/customers/interface";
 
 import { Actions } from "@components/actions/actions";
-import { Form, ModalComponent } from "@components/index";
-import { formatErrorsGraphql } from "@utils/errorsGraphql";
-import { usePaginatedCompanies } from "../../list/services";
-import { SectionFormComponent } from "@components/SectionFormComponent";
-import { ContactInfo } from "../fields/contactInformation";
-import { PlanInfoCustomer } from "../fields/PlanInfo";
-import { BranchInfoCustomer } from "../fields/BranchInfo";
+import { Form, ModalComponent, SectionFormComponent } from "@components";
+import {
+  ContactInfo,
+  PlanInfoCustomer,
+  BranchInfoCustomer,
+  FieldsCompany,
+} from "./components";
 
 interface FormCompany extends ICustomer {
   emailconfirm: string;
@@ -30,30 +26,9 @@ export const CreateCompanyModal = ({
   onClose,
   defaultValues,
 }: CompanyModalProps) => {
-  const { createCompany, loading, error } = useCreateCompany();
-  const { refetch: refetchCompanies } = usePaginatedCompanies({
-    page: 0,
-    pageSize: 15,
-  });
-
-  // handle errors
-  useEffect(() => {
-    if (error) {
-      const errors = formatErrorsGraphql(error);
-      errors.forEach((error) => {
-        enqueueSnackbar(error.message, {
-          variant: "error",
-          autoHideDuration: 4000,
-        });
-      });
-    }
-  }, [error]);
-
   const handleSubmit = async (data: ICustomer) => {
-    console.log("data", data);
-    // await createCompany({ ...data, isActive: true });
+    console.log("data submit", data);
     onClose();
-    refetchCompanies();
   };
 
   return (
@@ -106,7 +81,7 @@ export const CreateCompanyModal = ({
           }}
         >
           <Box sx={{ width: "30%" }}>
-            <Actions label="Guardar" loading={loading} />
+            <Actions label="Guardar" loading={false} />
           </Box>
         </Box>
       </Form>

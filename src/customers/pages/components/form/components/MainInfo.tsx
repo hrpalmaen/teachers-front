@@ -52,7 +52,7 @@ export const FieldsCompany = ({ defaultValues }: FieldsCompanyProps) => {
         />
       </Grid>
       {/* nit */}
-      <Grid item xs={12} sm={6} md={4} lg={4}>
+      <Grid item xs={12} sm={6} md={6} lg={6}>
         <FieldComponent
           label="Nit *"
           name="nit"
@@ -71,7 +71,7 @@ export const FieldsCompany = ({ defaultValues }: FieldsCompanyProps) => {
         />
       </Grid>
       {/* rulesQualifications */}
-      <Grid item xs={12} sm={6} md={4} lg={4}>
+      <Grid item xs={12} sm={6} md={4} lg={6}>
         <SelectComponent
           label="Escala de calificación *"
           name="rulesQualifications"
@@ -82,7 +82,7 @@ export const FieldsCompany = ({ defaultValues }: FieldsCompanyProps) => {
         />
       </Grid>
       {/* quantityGrades */}
-      <Grid item xs={12} sm={6} md={4} lg={4}>
+      <Grid item xs={12} sm={6} md={4} lg={6}>
         <SelectComponent
           label="Nivel de escolaridad *"
           name="quantityGrades"
