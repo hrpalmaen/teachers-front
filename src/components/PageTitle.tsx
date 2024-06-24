@@ -1,7 +1,15 @@
-import { CustomBreadcrumbsItem } from "@interfaces/CustomBreadcrumbs.interface";
 import { Box, Button } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { CustomBreadcrumbs } from "./Index";
+
+export interface CustomBreadcrumbsProps {
+  items: CustomBreadcrumbsItem[];
+}
+
+export interface CustomBreadcrumbsItem {
+  label: string;
+  href?: string;
+}
 
 interface PageTitleProps {
   title: string;

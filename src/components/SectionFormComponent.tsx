@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 
 interface SectionFormProps {
-  title?: string;
+  title?: string | React.ReactElement;
   children: React.ReactNode;
 }
 
@@ -23,7 +23,6 @@ export const SectionFormComponent = ({
           <Typography
             sx={{
               color: "secondary.main",
-              fontSize: "1rem",
               fontWeight: "600",
               textAlign: "left",
               padding: "0.1rem 1rem",
@@ -37,7 +36,7 @@ export const SectionFormComponent = ({
           />
         </Box>
       )}
-      <Box padding={2}>{children}</Box>
+      <Box padding={"1rem"}>{children}</Box>
     </Box>
   );
 };
