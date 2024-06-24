@@ -1,7 +1,10 @@
-import { DateFieldComponent } from "@components/DateFieldComponent";
-import { FieldComponent } from "@components/FieldComponent";
-import { SelectComponent } from "@components/SelectComponent";
 import { Grid } from "@mui/material";
+
+import {
+  DateFieldComponent,
+  FieldComponent,
+  SelectComponent,
+} from "@components";
 import { IUser } from "../Interfaces";
 
 interface FieldsProps {

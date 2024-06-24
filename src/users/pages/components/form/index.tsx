@@ -1,14 +1,16 @@
 import { Box } from "@mui/material";
 import * as yup from "yup";
 
-import { Actions } from "@components/actions/actions";
-import { Form, ModalComponent, useSnackbarUtils } from "@components";
-import { SectionFormComponent } from "@components/SectionFormComponent";
+import {
+  Form,
+  ModalComponent,
+  useSnackbarUtils,
+  Actions,
+  SectionFormComponent,
+} from "@components";
 
 import { IUser } from "./Interfaces";
-import { FieldsUser } from "./components/PersonalInfo";
-import { ContactInfoUser } from "./components/ContactInfo";
-import { SchoolInfoUser } from "./components/SchoolInfo";
+import { FieldsUser, ContactInfoUser, SchoolInfoUser } from "./components";
 
 interface UserModalProps {
   isOpen: boolean;
