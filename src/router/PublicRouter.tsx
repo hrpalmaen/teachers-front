@@ -1,4 +1,4 @@
-import { useAuth } from "@auth/context";
+import { useAuth } from "@/contexts";
 import { Navigate } from "react-router-dom";
 
 export const PublicRoute = ({ children }: { children: React.ReactNode }) => {
