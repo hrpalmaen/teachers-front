@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 
 import { ICustomer } from "@/customers/interface";
 
-import { Actions } from "@components/actions/actions";
+import { Actions } from "@components/actions";
 import { Form, ModalComponent, SectionFormComponent } from "@components";
 import {
   ContactInfo,

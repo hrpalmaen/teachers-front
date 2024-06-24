@@ -2,7 +2,7 @@ import { Grid } from "@mui/material";
 import { ICustomer } from "@/customers/interface";
 import { SwithComponent } from "@components/SwithComponent";
 import { FieldComponent } from "@components/FieldComponent";
-import { DateFieldComponent } from "@components/DateFieldComponent";
+import { DateFieldComponent } from "@components";
 
 interface PlanInfoProps {
   defaultValues?: ICustomer;

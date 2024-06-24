@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import { ColorPickerComponent } from "@components/ColorPickerComponent";
+import { ColorPickerComponent } from "@components";
 import { UploadFileComponent } from "@components/UploadFileComponent";
 import { ICustomer } from "@/customers/interface";
 
