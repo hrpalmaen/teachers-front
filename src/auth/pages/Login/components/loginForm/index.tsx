@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import * as yup from "yup";
 
 // import { useAuth } from "@auth/context/AuthProvider";
-import { Actions } from "@components/actions/actions";
-import { Form, useSnackbarUtils } from "@components/index";
+import { Actions } from "@components/actions";
+import { Form, useSnackbarUtils } from "@components/Index";
 
 import { Fields } from "./components/Index";
 import { LoginDto } from "./Interfaces";

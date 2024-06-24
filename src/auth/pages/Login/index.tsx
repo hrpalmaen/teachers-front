@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 // components
 import { FormBody } from "./components";
+import { SectionFormComponent } from "@components/SectionFormComponent";
 
 export const LoginPage = () => {
   return (
@@ -9,26 +10,22 @@ export const LoginPage = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#193b58",
         height: "100vh",
-        width: "100vw",
       }}
     >
-      <Box
-        sx={{
-          position: "relative",
-          width: "30rem",
-          backdropFilter: "saturate(2)",
-          border: "2px solid rgba(255, 255, 255, 0.6)",
-          borderRadius: "20px",
-          height: "25rem",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <FormBody />
-      </Box>
+      <SectionFormComponent>
+        <Box
+          sx={{
+            width: "30rem",
+            height: "25rem",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <FormBody />
+        </Box>
+      </SectionFormComponent>
     </Box>
   );
 };

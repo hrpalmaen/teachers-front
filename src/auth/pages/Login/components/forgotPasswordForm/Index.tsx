@@ -4,7 +4,7 @@ import { Box, IconButton, Typography } from "@mui/material";
 import { EmailOutlined } from "@mui/icons-material";
 // components
 import { Form } from "@components/Form";
-import { Actions } from "@components/actions/actions";
+import { Actions } from "@components/actions";
 import { FieldComponent } from "@components/FieldComponent";
 
 export const ForgotPasswordForm = () => {
